@@ -1,0 +1,6 @@
+(ns utilities.collections)
+
+(def index [coll i]
+  (.getIndex coll i))
+
+

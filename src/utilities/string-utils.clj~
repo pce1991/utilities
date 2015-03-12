@@ -1,0 +1,27 @@
+(ns utilities.string-utils
+  (:require [clojure.string :refer :all]))
+
+(defn palindrome-string? [string]
+  "Will work for a single word or phrase, respecting whitespace."
+  (= (seq string) (reverse string)))
+
+(defn palindorme-phrase? [string]
+  "Ignoring whitespace, returns true if the seq of characters reversed is the same"
+  (let [nowhite (replace string #" " "")]
+    (= (seq nowhite) (reverse nowhite))))
+
+(defn semordnilaps [word]
+  "Checks to see if the word gives spells another word if written backwards"
+  ;; will need a dictionary/wordlist to check
+  )
+
+
+(defn acronymize [string]
+  "Takes a string and returns one containing the first letter of each word in it."
+  (uppercase (apply str (map #(first (seq %)) (split string #" ")))))
+
+(defn acronym-map [string]
+  (zipmap (map str (seq (acronymize string)))
+          (split string #" ")))
+
+
